@@ -9,11 +9,13 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent implements AfterViewInit {
   constructor(@Inject(DOCUMENT) private doc: any) {}
+
   ngAfterViewInit(): void {
     if (!environment.production) {
       this.checkA11yLinkInit();
     }
   }
+
   checkA11yLinkInit(): void {
     const headElm: HTMLHeadElement = this.doc.head;
     const styleLink: HTMLElement = this.doc.createElement('link');
